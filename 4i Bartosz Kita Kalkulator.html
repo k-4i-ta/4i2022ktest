@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+</head>
+<body>
+    <script>
+        let lb1;
+        let lb2;
+        let zmienna;
+        function obliczanie(lb1, lb2, zmienna)
+        {
+            switch(zmienna)
+            {
+                case '*':
+                    return(document.write(`wynik mnożenia liczb ${lb1} i ${lb2} wynosi: ${lb1 * lb2}`)) 
+                    break;
+                case '/':
+                    return(document.write(`wynik dzielenia liczb ${lb1} i ${lb2} wynosi: ${lb1 / lb2}`)) 
+                    break;
+                case '+':
+                    return(document.write(`wynik dodawania liczb ${lb1} i ${lb2} wynosi: ${lb1 + lb2}`)) 
+                    break;
+                case '-':
+                    return(document.write(`wynik odejmowania liczb ${lb1} i ${lb2} wynosi: ${lb1 * lb2}`)) 
+                    break;
+                default:
+                    return(document.write('zły znak'))
+            } 
+        }
+        
+        while(isNaN(lb1)){
+        lb1 = parseInt(prompt("podaj liczbę 1 "));
+        console.log(lb1);
+        }
+        while(isNaN(lb2)){
+        lb2 = parseInt(prompt("podaj liczbę 2 "));
+        console.log(lb2);
+        }
+        zmienna = prompt("podaj zmienną ");
+        console.log(zmienna);
+        obliczanie(lb1, lb2, zmienna);
+    </script>    
+</body>
+</html>
