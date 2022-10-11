@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>tablice 2</title>
+  </head>
+  <body>
+    <script>
+      let tablica = new Array(1, 2, 3, 4, 5);
+      console.log(tablica);
+      let a_pop = tablica.pop();
+      let b_shift = tablica.shift();
+      console.log(a_pop);
+      console.log(b_shift);
+      console.log(tablica);
+      tablica.unshift(a_pop);
+      tablica.push(b_shift);
+      console.log(tablica);
+      console.log(tablica);
+      for (let i = 0; i < tablica.length; i++) {
+        document.write(tablica[i] + "<br>");
+      }
+    </script>
+  </body>
+</html>
