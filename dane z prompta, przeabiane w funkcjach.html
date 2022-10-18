@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script>
+        // do tablicy wstawić działąnie razem z wynikiem i wyświetlać co zostało wykonane
+        // użyt. podaje ile razy chce wywołać funkcję, w funkcji odczytujemy liczby i znak i zapisujemy liczby do tablicy, po tych krokach wypisujemy kolejno dzianie 1 +-/*  
+    //     let arr1 = [1,2,3,4,5];
+    //     let arr2 = [6,7,8,9,10];
+    //     const arr =[];
+    //     arr.push(arr1);
+    //     arr.push(arr2);
+    //     console.log(arr);
+    //     for (let j = 0; j < arr.length; j++) {
+    //         document.write('zawartość: ');
+    //     for (let i = 0; i < arr[j].length; i++) {
+    //         document.write(`element [j][i] to `+arr[j][i]+"<br>");
+    //     }
+    //   }
+
+    //--------------------------------------||--------------------------------------
+
+    let znak;
+    let num1;
+    let num2;
+    let next = true;
+    const tab_glw = [];
+    function dane() {
+        while(isNaN(num1)){
+            num1 = parseInt(prompt("podaj liczbę pierwszą: "));
+        }
+        while(isNaN(num2)){
+            num2 = parseInt(prompt("podaj liczbę drugą: "));
+        }
+        znak = prompt("Podaj operator: ")
+    }
+    function obliczenia() {
+        num1 = undefined;
+        num2 = undefined;
+        dane();
+        const tab_pom = [];
+        tab_pom.push(num1, num2, znak);
+        tab_glw.push(tab_pom); 
+    }
+    do {
+        if (confirm('Zrobić kolejne działaie?'))
+        {
+        obliczenia();
+        }
+        else {
+            print(tab_glw);
+        }
+    } 
+    while (next)
+    function print(tab_glw)
+    {
+        next = false;
+        for (let j = 0; j < tab_glw.length; j++) {
+        for (let i = 0; i < tab_glw[j].length; i++) {
+            console.log(tab_glw[j][i])
+        }
+    }
+    }
+    </script>
+</body>
+</html>
