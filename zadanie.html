@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <script>
+    // zrobić od użytkownika informacje ile liczb chce wprowadzić, muszą być liczby (isNan), nie może być mniej niż 10 elementów i nie więcej od 20. 
+    // każdą liczbę sprawdzić czy jest parzysta czy nie
+    // jesli jest parzysta to wrzucić do: tablica, z 2 tablicami w środku, jeśli jest parzysta to do tablicy parzystej
+    // bez wbudowanej funkcji sortowania posortować tablice by na koniec wypisać na strone elementy parzyste i nieparzyste rosnąco
+    // bez sortowania, i największy i najmniejszy element z tablic
+    // let ile;
+    // const tab_main = [ ];
+    // let tab_pom2 = [];
+    
+    // function ile_lczb() {
+    // while(isNaN(ile)){ 
+    // ile = parseInt(prompt("ile liczb chcesz wprowadzić (od 10 do 20)?"));
+    // }
+    // if(ile > 20 || ile < 10)
+    // {
+    //     ile = 10;
+    // }
+    // else
+    // {
+    // }
+    // console.log(ile);
+    // }
+    // function pobor()
+    // {
+    //     let liczba;
+    //     let licznik=0; 
+        
+    //     while(licznik<ile){
+    //     while(isNaN(liczba)){ 
+    //     liczba = parseInt(prompt("podaj liczbe"));
+    //     }
+    //     let tab_pom = [];
+    //     tab_pom.push(liczba);
+    //     licznik++;
+    //     liczba = undefined;
+    //     console.log(tab_pom);
+    //     tab_pom2.push(tab_pom);
+    //     console.log(tab_pom2);        
+    // }
+    // }
+    // function P_NP()
+    // {
+    //     let pnp = 0;
+    //     let x = 0;
+    //     let y=0;
+    //     let z=0;
+    //     let Parz = [];
+    //     let Nparz = [];
+    //     while (pnp<tab_pom2.length)
+    //     {
+    //     if (tab_pom2[x] % 2 == 0)
+    //     {
+    //         console.log(x+'parz');
+    //          Parz.push(tab_pom2[x]);
+    //          y++;
+    //     }
+    //     else
+    //     {
+    //          console.log(x+'nieparz');
+    //          Nparz.push(tab_pom2[x]);
+    //           z++;
+    //     }
+    //     x++;
+    //     pnp++;
+    //     }
+    //      console.log(Parz);
+    //      console.log(Nparz);
+    //      tab_main.push(Parz);
+    //      tab_main.push(Nparz);
+    //      console.log(tab_main);
+
+    // }
+    // // sortowanie nie działa tak jak ma być
+    // function sort() {
+    //     let wielikie=0;
+    // for (let j = 0; j < tab_main.length; j++) {
+    //     for (let i = 0; i < tab_main[j].length; i++) {
+    //         console.log(tab_main[j][i])
+    //         if(wielikie == 0)
+    //         {
+    //             wielikie = (tab_main[j][i]);
+    //             console.log('największe:  '+wielikie);
+
+    //         }
+    //         else if(wielikie<(tab_main[j][i]))
+    //         {
+    //             wielikie = (tab_main[j][i]);
+                
+    //         }
+    //         else
+    //         {
+
+    //         }
+    //     }
+    // }
+    //     console.log('największe:  '+wielikie);
+    // }
+    // function sort_male() {
+    //     let male=0;
+    // for (let j = 0; j < tab_main.length; j++) {
+    //     for (let i = 0; i < tab_main[j].length; i++) {
+    //         console.log(tab_main[j][i])
+    //         if(male == 0)
+    //         {
+    //             male = (tab_main[j][i]);
+    //             console.log('największe:  '+male);
+
+    //         }
+    //         else if(male>(tab_main[j][i]))
+    //         {
+    //             male = (tab_main[j][i]);
+                
+    //         }
+    //         else
+    //         {
+
+    //         }
+    //     }
+    // }
+    //     console.log('najmniejsze:  '+male);
+    // }
+    // ile_lczb();
+    // pobor();
+    // P_NP();
+    // sort();
+
+    //Bombelek
+    const tablica = [5,4,3,4,6,1];
+        for(let i=0; i<tablica.length-1;i++)
+        {
+            for(let j=0;j<tablica.length-1;j++)
+            {
+                if(tablica[j]>tablica[j+1])
+                {
+                    let pom;
+                    pom = tablica[j];
+                    tablica[j]=tablica[j+1];
+                    tablica[j+1]=pom;
+                    document.write(pom+'pom'+"<br>");
+                    console.log(tablica[j])
+                }
+            }
+        }
+        document.write("<br>"+tablica)
+    </script>
+    
+</body>
+</html>
