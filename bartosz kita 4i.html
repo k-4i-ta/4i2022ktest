@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name="author" content="Bartosz Kita 4i">
+</head>
+<body>
+    <form>
+        <label for="ile"> Wprowadź ile elementów tablicy (10 - 20)</label>
+        <input type="number" id="ile"/>
+        <button type="button" value="submit" id="ileP">zatwierdź</button>
+        <br>
+
+        <label for="wprow"> Wprowadź elementy tablicy</label>
+        <input type="number" id="wprow"/>
+
+    </form>
+    <button value="" id="prz1">wprowadź</button>
+    <button value="" id="prz2">test</button>
+    <button value="" id="prz3">finito</button>
+    <p></p>
+    <script>
+        const wprow = document.querySelector('#wprow');
+        const btn = document.querySelector('#prz1');
+        const btn2 = document.querySelector('#prz2');
+        const btn3 = document.querySelector('#prz3');
+        // const formWprow = document.querySelector('#PrWp');
+        const display = document.querySelector('p');
+        const ile = document.querySelector('#ile');
+        const ileP = document.querySelector('#ileP');
+        console.log(btn);
+        console.log(wprow);
+        console.log(ile);
+        const tab = [];
+        let i = 0;
+        let tab_pom = [];
+
+        function wprowadz()
+        {
+            const ileWrt = parseInt(ile.value);
+            const wprowWrt = parseInt(wprow.value);
+            
+            if (i<ile.value){
+              if(ileWrt > 20 || ileWrt < 10)
+              {
+                  display.innerHTML = ("Zły zakres")
+               }
+               else{
+               
+                   tab[i]= wprowWrt;   
+                    console.log(tab[i]);
+                   // let n = ileWrt - i;
+                  //  display.innerHTML = ("pozostało "+(n)+" elementów");
+                
+                }
+            
+            }
+               else{
+                 btn.disabled = true;
+            }
+            i++;
+           
+
+        }
+        function offP(){
+            ileP.disabled = true;
+
+        }
+
+        function fn2()
+        {
+            
+            console.log(tab);
+        }
+        function fn3()
+        {
+            let pom_1;
+            
+            for(let x = 0; x<tab.length;x++)
+             {
+                 pom = undefined;
+                if (tab[x] / 2 == 0)
+                {
+                
+                    pom = tab.shift;
+                    tab_pom.push(pom);
+                }
+                else
+                {
+                    pom = tab.shift;
+                    tab_pom.unshift(pom);
+                }
+             }
+             for(let y  = 0;y<tab_pom.length;y++){            
+             display.innerHTML = (tab_pom[y])+", ";
+             } // nie działa
+        }
+
+// pole formularza w którym użytkownik będzie musiał podać liczbę między 10 a 20
+// ilośćelementów które użytkownik będzie wprowadzał do tablicy
+// drugie pole w którym będzie podawał kolejne elementy do tablicy
+// może wprowadzić tylko tyle danych ile jest w tym 1 polu
+// w momencie gdy będzie tyle danych w tablicy, blokowany jest przycisk do dodania kolejnych - artybut disable albo ukryć
+// jeżeli liczba jest parzysta to ląduje na końcy tablicy, a nieparzysta na początku
+// w polu w którym będą wyświetlane wyniki trzeba będzie wypisać w liście numerowanej wszystkie lementy tablicy
+// następnie sumę 2 pierwszych i 2 ostatnich elementów tablicy
+//btn.disabled = true;
+        btn.addEventListener('click',wprowadz); 
+        btn2.addEventListener('click',fn2); 
+        btn3.addEventListener('click',fn3); 
+        ileP.addEventListener('click',offP);
+        
+    </script>
+</body>
+</html>
