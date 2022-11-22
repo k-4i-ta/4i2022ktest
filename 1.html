@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>/\/\/\/\/\/\/\/\/\\/\/\/\/\/\/\</title>
+</head>
+<body>
+
+    <forms action="a">
+        <label for="gosp">Gospodarz
+            <select name ="" id="gosp">
+                <option value = "Polska">Polska</option>
+                <option value = "Argentyna">Argentyna</option>
+                <option value = "Dania">Dania</option>
+            </select>
+        </label>
+        <label for="gosc">Gość
+            <select name ="" id="gosp">
+                <option value = "UAE">UAE</option>
+                <option value = "USA">USA</option>
+                <option value = "UK">UK</option>
+            </select>
+        </label>
+        <p>
+            <label for="dogr"> Jest
+                <input type="radio" name="dogr" id="dogrT" />
+            </label>
+            <label for="dogr"> Nie ma
+                <input type="radio" name="dogr" id="dogrF" />
+            </label>
+        </p>
+        <div>
+            <label for="yC">Żółta kartka? <input type="checkbox" name="dod" id="yCard"></label>
+            <label for="rC">Czerwona kartka? <input type="checkbox" name="dod" id="rCard"></label>
+            <label for="karn">Karny? <input type="checkbox" name="dod" id="karn"></label>
+        </div>
+         <input type="submit" id="submit"/> <input type="reset" id="reset"/>
+    </forms>
+    <p id="display"></p>
+    <script>
+        const gosp = document.querySelector("#gosp");
+        const gosc = document.querySelector("#gosc");
+        const dogr = document.querySelectorAll('input[pname="dogr"]');
+        const extra = document.querySelectorAll('[name="dod"]');
+        const sbmt = document.querySelector("#submit "); 
+        const rset = document.querySelector("#reset"); 
+        const display = document.querySelector("#display");
+      
+
+        function fn1()
+        {
+            // do dorobinia
+            display.innerHTML = gosp.value;
+        }
+
+        sbmt.addEventListener('click',function(evt)
+        {
+            event.preventDefault;
+            fn1();
+        })
+        
+
+
+        // 
+    </script>
+
+</body>
+</html>
