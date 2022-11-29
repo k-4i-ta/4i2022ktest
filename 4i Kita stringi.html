@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <form>
+        <label for="txt1">Tekst    
+            <input type="text" id="wprow">
+            <button type="button" value="" id="submit">Prześlij</button>
+        </label>
+        <label for="txt2">Tekst 2
+            <input type="text" id="comp">   
+            <button type="button" value="" id="kompr">porównanie</button>
+        </label>
+    </form>
+    <form>
+        <label for="pali"><button type="button" id="pldr">Palindrom</button></label>
+        <label for="ilezn"><button type="button" id="ilzn">ile znaków</button></label>
+        <label for="ilesamo"><button type="button" id="samo">ile samogłosek</button></label>
+        <label for="czyzaw"><button type="button" id="czyz">czy zawiera</button></label>    
+    </form>
+    <p id="display"></p>   
+     <script>
+        const wprow = document.querySelector("#wprow");
+        const comp = document.querySelector("#comp");
+        const btn = document.querySelector("#submit");
+        const btn2 = document.querySelector("#kompr");
+        const palindrom = document.querySelector("#pldr");
+        const ile_znakow = document.querySelector("#ilzn");
+        const samogłoski = document.querySelector("#samo");
+        const czy_zawiera = document.querySelector("#czyz");
+        const display = document.querySelector("#display");
+
+
+        function fn1(){
+        }
+        function fn_pali()
+        {   
+            let tekst = wprow.value;
+            let split;
+            split = tekst.split("");
+            split =  split.reverse();  
+            split = split.toString();
+
+            split = split.replaceAll(",","");
+          
+            if(split.toLowerCase() == tekst.toLowerCase())
+            {
+                display.innerHTML = ("wyraz "+tekst+" jest palindromem");
+            }
+            else{
+                display.innerHTML = ("wyraz nie jest palindromem");
+            }
+        }   
+        function fn_ile_znakow ()
+        {
+            let tekst = wprow.value;
+            let ile = tekst.length;
+            display.innerHTML = (ile);
+        }
+        function fn_samo()
+        {
+            let tab_samo = ["a", "e", "i", "o", "u", "ó" , "y", "ą", "i", "ę"];
+            let tekst = wprow.value;
+            tekst = tekst.toLowerCase();
+            let split = tekst.split;
+            let i = 0, j = 0;
+            let x=0;
+            while(i<tekst.length)
+            {
+                j = 0;
+                while(j<tab_samo.length)
+                {
+                    if(tekst[i] == tab_samo[j])
+                    {
+                        x++;
+                    }
+                    j++;
+                }
+                i++;
+            }
+            display.innerHTML = ("samogłosek jest: "+x);
+        }
+        function fn_czyz()
+        {
+            let tekst1 = wprow.value;
+            let tekst2 = comp.value;
+            let split1 = tekst1.split("");
+            split1 = split1.toString();
+            split1 = split1.replaceAll(",","");
+            let split2 = tekst2.split("");
+            split2 = split2.toString();
+            split2 = split2.replaceAll(",","");
+            if(split1.indexOf(split2) !== -1)
+            {
+                display.innerHTML = ("zdanie "+tekst1+" zawiera wyraz "+tekst2);
+            }
+            else
+            {
+                display.innerHTML = ("zdanie "+tekst1+" nie zawiera zawiera wyrazu "+tekst2);
+            }
+
+
+        }
+        btn.addEventListener('click', function(evt)
+        {
+            event.preventDefault;
+            // fn1();
+        })
+        btn2.addEventListener('click',function(evt){
+            event.preventDefault;
+        });
+        palindrom.addEventListener('click',fn_pali);
+        ile_znakow.addEventListener('click',fn_ile_znakow);
+        samogłoski.addEventListener('click',fn_samo);
+        czy_zawiera.addEventListener('click',fn_czyz);
+        //  2 pola, 
+        // pod 1 przyciskiem czy jest palindromerm (odwróć pętlą for)
+        // ile znaków
+        // czy zawiera samogłosek
+        // czy zawiera ciąg z drugiego pola
+        // zamienić ciąg znaków przed spacją z drugiego pola na po spacji z drugiego pola w tekście z 1 pola
+
+    </script>
+</body>
+</html>
