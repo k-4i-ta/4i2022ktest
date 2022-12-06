@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(5, 10, 36);
+
+        }
+        form, label{
+            background-color: blue;
+            color: yellow;
+        }
+        #prz1
+        {
+            visibility: hidden;
+        }
+        #display
+        {
+            width: fit-content;
+            height: fit-content;
+            padding-top: 100px;
+            padding-left: 100px;
+            padding-right: 100px;
+            border-bottom: solid snow 50px;
+            margin: auto auto;
+        }
+        .cal {
+            text-align: center;
+        }
+        .drzewo
+        {
+            color: brown;
+            background-color: brown;
+
+        }
+        .głz
+        {
+
+            color: green;
+            background-color: green;
+
+        }
+        .zvezdochka
+        {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <label for="ile">ile rzędów? <input type="number" id="ileRZ">
+    <button type="button" id="prz1" ></button>
+    </label>
+    </form>
+    <button id="pol">pół choinki</button>
+    <button id="cal">cała choinka</button>
+    <p id="display"></p>
+    <script>
+        const prz1 = document.querySelector("#prz1");
+        const polowa = document.querySelector("#pol");
+        const cala = document.querySelector("#cal");
+        const ilsc = document.querySelector("#ileRZ");
+        const display = document.querySelector("#display");
+        // nbsp, czcionka o stałej szerokości
+        function fn1()
+        {
+            display.className = "";
+
+            display.innerHTML = ("");
+            display.innerHTML += ('<span class ="zvezdochka"> ★ </span>');
+            let wrt = ilsc.value;
+            for (let i = 0; i < wrt; i++)
+            {
+                for(let j = 0; j<i;j++)
+                {
+                display.innerHTML += ('<span class="głz">*&nbsp</span>');
+                }
+                display.innerHTML += ("<br>");
+            }
+            korzen();
+        };
+        function fn2()
+        {
+            display.className = "cal";
+            let wrt = ilsc.value;
+            display.innerHTML = ("");
+            display.innerHTML += ('<span class ="zvezdochka">★</span>');
+
+            for (let i = 0; i < wrt; i++)
+            {
+                for(let j = 0; j<i;j++)
+                {
+                display.innerHTML += ('<span class="głz">*&nbsp</span>');
+                }
+                display.innerHTML += ("<br>");
+
+            }
+            korzen();
+        };
+        function korzen()
+        {
+            let wrt_krz = ilsc.value;
+            wrt_krz = wrt_krz / 3;
+            for (let i = 0; i < wrt_krz; i++)
+            {   
+            display.innerHTML += ('<span class="drzewo">| &nbsp|</span> &nbsp');
+            display.innerHTML += ("<br>");
+
+            }
+
+            display.innerHTML += ('<span class="drzewo">|_|</span>  &nbsp');
+
+        }
+        prz1.addEventListener('click',function(evt)
+        {
+            event.preventDefault;
+            
+        });
+        polowa.addEventListener('click',fn1);
+        cala.addEventListener('click',fn2);
+    </script>
+</body>
+</html>
