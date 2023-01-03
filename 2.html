@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="3.css">  
+      <title>Document</title>
+</head>
+<body>
+    <label> Wybierz rodzaj tekstu 
+        <select name="sel" id="elemSel">
+            <option value="p">P</option>
+            <option value="div">Div</option>
+            <option value="aside">aside</option>
+            <option value="footer">footer</option>
+            <option value="article">article</option>
+        </select>
+    </label>
+    <br>
+    <label>Podaj tekst
+        <input type="text" id="text">
+        <button type="submit" id="txt">zatwierdź</button>
+    </label>
+    <br>
+    <label>Podaj kolor 
+        <input type="color" id="color">
+        <!-- <button type="submit" id="col">zatwierdź</button> -->
+    </label>
+    <br>
+    <label>Podaj kolor 
+        <input type="color" id="backColor">
+        <!-- <button type="submit" id="bckcol">zatwierdź</button> -->
+    </label>
+    <br>
+    <label id="lab">Pozycja
+        <input type="radio" value="main" name="pos">main
+        <input type="radio" value="aside" name="pos">aside
+    </label>
+    <br>
+    <button id="gen">Generuj</button>
+    <div id="display"></div>
+    <script>
+        const txt = document.querySelector("#txt");
+        const gen = document.querySelector("#gen");
+        const col = document.querySelector("#col");
+        const bck = document.querySelector("#bck");
+        const text = document.querySelector("#text");
+        const color = document.querySelector("#color");
+        const backColor = document.querySelector("#backColor");
+        const display = document.querySelector("#display");
+        const elemSel = document.querySelector("#elemSel");
+        // const pos = document.querySelector('input[name="pos"]:checked').value;
+        function wypisz(){
+            const element = document.createElement(elemSel.value);
+            const elementTekst = document.createTextNode(text.value);
+            element.appendChild(elementTekst);
+            element.style.color= color.value;
+            element.style.backgroundColor=backColor.value;
+           
+            display.appendChild(element);
+        }
+        
+    
+        txt.addEventListener("click",function(evt){
+            event.preventDefault;
+        });
+        gen.addEventListener("click",wypisz);
+    </script>
+</body>
+</html>

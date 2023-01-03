@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="Generuj">Generuj</button>
+
+
+    <div id="display"></div>
+    <script>
+        let i = 1;
+        const Generuj = document.querySelector("#Generuj");
+        const display = document.querySelector("#display");
+        function addElement (){
+            const element = document.createElement('p');
+            const elementTekst = document.createTextNode(`tekst ${i}`);
+            element.appendChild(elementTekst);
+            element.style.color='green';
+            element.style.backgroundColor='#abcdef';
+            element.addEventListener("click", function(){
+                //this.style.color='#000';
+                this.remove();
+            });
+
+                i++;
+            display.appendChild(element);
+        }
+        Generuj.addEventListener("click",addElement);
+    </script>
+</body>
+</html>

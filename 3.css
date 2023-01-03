@@ -1,0 +1,16 @@
+body{
+    background-color: aliceblue;
+}
+aside
+{
+    float: right;
+
+}
+.prawo
+{
+    float: right;
+}
+.lewo
+{
+    float: left;
+}
