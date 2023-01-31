@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <forms>
+        <input type="text" id="imie" placeholder="imie">
+        <input type="text" id="nazwisko" placeholder="nazwisko">
+        <input type="number" id="wiek" placeholder="wiek">
+        <input type="submit" id="smb">
+    </forms>
+    <br>
+    <button id="wypisz">wypisz</button> <p>adnotacja, to niezbyt działa</p>
+    <br>
+    <p id="display"></p>
+    <script>
+        const imie = document.querySelector("#imie")
+        const nazwisko = document.querySelector("#nazwisko")
+        const wiek = document.querySelector("#wiek")
+        const smb = document.querySelector("#smb")
+        const btn = document.querySelector("#wypisz")
+        const display = document.querySelector("#display")
+        const tab_glw = [];
+        function pom(){
+            const tab_pom = [];
+            tab_pom.push(imie.value, nazwisko.value, wiek.value)
+            tab_glw.push(tab_pom);
+        }
+        smb.addEventListener("click", function(evt){
+            event.preventDefault;
+            pom();
+            console.log(tab_glw)
+        })
+        function wypisz(){
+            for (const key in tab_glw   )
+        {
+            {
+            display.innerHTML += `<p> ${tab_glw} </p>`
+            }
+        } 
+        }
+        btn.addEventListener("click", wypisz)
+    </script>
+</body>
+</html>
