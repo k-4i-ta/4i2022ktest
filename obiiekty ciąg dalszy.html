@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <form>
+        <label> Wybierz markę
+            <select name="sel" id="marka">
+                <option value="Ford">Ford</option>
+                <option value="Kia">Kia</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="BMW">BMW</option>
+                <option value="Chevrolet">Chevrolet</option>
+            </select> 
+        </label>
+        <br>
+        <label>Podaj kolor
+            <input type="color" id="kolor">
+        </label>
+        <br>
+        <label>paliwo
+            <select name="pal" id="paliwo">
+                <option value="benzyna">benzyna</option>
+                <option value="diesel">diesel</option>
+                <option value="elektryk">elektryk</option>
+                <option value="gaz">gaz</option>
+            </select>
+        </label>
+        <br>
+        <label>stan
+            <select name="stan" id="stan">
+                <option value="Nowy">Nowy</option>
+                <option value="Używany">Używany</option>
+            </select> 
+        </label>
+        <br>
+    </form>
+    <button id="btn">Zatwierdź</button>
+    <button id="btn2">wyczyść</button>
+    <!-- <label>Szukaj
+        <select name="src" id="src">
+            <option value="Ford">Ford</option>
+            <option value="Kia">Kia</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="BMW">BMW</option>
+            <option value="Chevrolet">Chevrolet</option>
+        </select> 
+    </label>
+    <button id="btn3">wyczyść</button> -->
+    <div id="display"></div>
+    <script>
+        // formularz gdzie użytkownik wybierze marke samochodu, wprowadzi kolor, paliwo, stan nowy/używany, zapisać w obiekcie, dodać do tablicy (np pushem)
+        const btn = document.querySelector("#btn");
+        const btn2 = document.querySelector("#btn2");
+        const btn3 = document.querySelector("#btn3");
+        const marka = document.querySelector("#marka");
+        const szukaj = document.querySelector("#src");
+        const kolor = document.querySelector("#kolor");
+        const paliwo = document.querySelector("#paliwo");
+        const stan = document.querySelector("#stan");
+        const display = document.querySelector("#display");
+        const tab_glw = [];
+
+
+        function do_tab()
+        {
+            const auto = {
+            brand: marka.value,
+            color: kolor.value,
+            fuel: paliwo.value,
+            condition: stan.value,
+            brand: marka.value
+            }
+            const tab_pom = [];
+            tab_pom.push(auto);
+            console.log(tab_pom);
+            tab_glw.push(tab_pom);
+            console.log(tab_glw);
+
+            // tab_pom.push(marka.value, kolor.value, paliwo.value, stan.value);
+            // tab_glw.push(tab_pom, "<br>");
+            //  display.innerHTML = tab_glw;
+            // console.log(tab_glw);
+            // console.log(tab_pom);
+            for (const key in auto)
+            {
+                {
+                    display.innerHTML += auto[key]+", ";
+                }
+            }
+            display.innerHTML +="<br>";
+        }
+
+        function search()
+        {
+            tab_glw.filter(auto => marka.value = src.value).map(auto =>
+            {
+                display.innerHTML += auto[key]+", ";
+            })
+            display.innerHTML +="<br>";
+        }
+        function clear()
+        {
+            // tab_glw = []; 
+            tab_glw.length = 0; 
+            console.log(tab_glw);
+            display.innerHTML = "";
+        }
+
+        function wypisz()
+        {
+            display.innerHTML = "awasada";
+        };
+        btn.addEventListener("click", function(evt){
+            event.preventDefault;
+            do_tab();
+        });
+        btn2.addEventListener("click", function(evt){
+            event.preventDefault;
+            clear();
+        });
+        // btn3.addEventListener("click", function(evt){
+        //     event.preventDefault;
+        //     search();
+        // });
+    </script>
+</body>
+</html>
