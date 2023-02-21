@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <label>Podaj nazwę wydarzenia
+        <input type="text" id="nazwa">
+    </label>
+    <label>Podaj datę
+        <input type="date" id="data">
+    </label>
+    <button type="submit" id="btn">dodaj</button>
+</form>
+<div id="display"></div>
+</body>
+<script>
+    const btn = document.querySelector("#btn");
+    const nazwa = document.querySelector("#nazwa");
+    const data = document.querySelector("#data");
+    const display = document.querySelector("#display");
+    let tab_glw = [];
+    function toDo()
+    {
+        const wydarz = {
+            name: nazwa.value,
+            date: data.value,
+            id: new Date().getTime().toString(16),
+            isDone: false,
+        }
+        // const tab_pom = [];
+        tab_glw.push(wydarz);
+          }
+    function wypis() {
+
+        display.innerHTML = ""
+        for (item of tab_glw)
+        {
+           display.innerHTML += `<div class="todoItem" id="${item.id}"> nazwa: ${item.name} do: ${item.date} <div class="deleteBtn">X</div> <input type="checkbox" ${item.isDone ? 'checked' : ''}></div>`
+        }
+
+        const deleteBtns = document.querySelectorAll(".deleteBtn");
+        const completed = document.querySelectorAll("input[type='checkbox']");
+        for(item of deleteBtns){
+            item.addEventListener("click",  deleteItem);
+        }
+        for(item of completed){
+            item.addEventListener("click",  done);
+        }
+    }
+    function  deleteItem(){
+        const parentId = this.parentElement.id;
+        tab_glw = tab_glw.filter(item => item.id != parentId);
+        this.parentElement.remove(); 
+        wypis();
+    }
+    function done(){
+        const parentId = this.parentElement.id;
+        if( tab_glw.find(item => item.id == parentId).isDone){
+            tab_glw.find(item => item.id == parentId).isDone = false;
+        }else{
+        tab_glw.find(item => item.id == parentId).isDone = true;
+        }
+    }
+    btn.addEventListener("click", function(evt)
+    {
+        evt.preventDefault();
+        toDo();
+        wypis();
+    })
+</script>
+</html>
