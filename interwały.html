@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">zadanie 1</button>
+    <form>
+        <label>Ile razy ma się wypisywać tekst
+            <input type="number" id="ile">
+        </label>
+        <br>
+        <label>ile razy na sekunde ma się wypisać
+            <input type="number" id="inter">
+        </label>
+        <br>
+        
+        <button type="submit" id="btn2">wypisz</button>
+    </form>
+
+    <div id="display"></div>
+    <script>
+        // console.log("log pierwszy")
+        function log2(){
+            console.log("log drugi")
+        };
+        // setTimeout(log2, 3000)
+        function log3 ()
+        {
+            for (let i = 0; i < 5; i++)
+            {
+                console.log(`wywoyływanie ${i}`);
+            }
+
+        };
+        let i = 0;
+        function log4()
+        {
+            console.log(`wywoyływanie ${i}`);
+            if(i>6)
+            {
+                clearInterval(interwał);
+            }
+            i++;
+
+        }
+        // const interwał = setInterval(log4, 2000)
+        // log4();
+        // wypisać coś na stronie, po 3 sekundach zostanie wyczyszczone
+        // zrobić prosty formularz w którym będzie ile razy ma być wywoałana jakaś funkcja wypisująca  coś na stronie, po tym czasei stop
+        const display = document.querySelector("#display");
+        const ile = document.querySelector("#ile");
+        const inter = document.querySelector("#inter");
+        const btn1 = document.querySelector("#btn1");
+        const btn2 = document.querySelector("#btn2");
+        function czysc()
+        {
+            display.innerHTML = "";
+        }
+        function wypis()
+        {
+            display.innerHTML = ("tekst tekstum");
+            setTimeout(czysc, 3000);
+        }
+        let x = 1;
+        function zad2(){
+
+            const ilosc = ile.value;
+            const iter = (1000 / inter.value);
+                const intval = setInterval(fun1, iter)
+                function fun1()
+                {
+                if(x>ilosc)
+                {
+                clearInterval(intval);
+                }
+                else{
+                display.innerHTML  += "tekst ttestowy"+"<br>";
+                }
+                x++;
+                }
+                x = 1;
+        }
+        
+        btn1.addEventListener("click", wypis)
+        btn2.addEventListener("click", function(evt){
+            evt.preventDefault();
+            czysc();
+            zad2();
+        })
+        // teraz aby zamisat wypisywać jedo pod drugim, zrób tablicę losowych poiwtań, i niechaj randomowo losuje, i interwał to co na ile się pojawia, połowa interwału ile czeka
+        
+    </script>
+</body>
+</html>
