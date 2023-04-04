@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- po wypełnieniu formularza ukryje go, wyświetlając główną stronę formularza. W głównej stronie dać info takie jak tematy, dział, ilość godzin, opis, checkbox czy zrealizowane, radio 3 opiekunów, i to gdzieś chbya zapisać -->
+    <form id="top">
+        <section class="info">
+            <label> Imie
+                <input type="text" id="imie" required>
+            </label>
+            <label> Nazwisko
+                <input type="text" id="nazwisko" required>
+            </label>
+            <br>
+            <br>
+            <label>Klasa
+                <input type="text" id="klasa" required>
+            </label>
+            <label>Rok szkolny 
+                <input type="text" id="rok_szk" required>
+            </label>
+            <br>
+            <br>
+            <label>Odnytej w:
+                <input type="text" id="mesto" required>
+            </label>
+        </section>
+        <br>
+        <br>
+        <section class="kiedy">
+            <label>Od:
+                <input type="date" id="od" required>
+            </label>
+            <label>Do:                                                                                                          
+                <input type="date" id="do" required>
+            </label>
+        </section>
+        <br>
+        <button type="submit" id="main_btn" class="btn">Zapisz Dane</button>
+        <button type="reset" class="btn">Wyczyść Dane</button>
+    </form>
+    <div id="wypisz"></div>
+    <
+    <script>    
+        const main_btn = document.querySelector("#main_btn")
+        const help_btn = document.querySelector("#help")
+
+
+        function ukryj(){
+            let ukr = document.querySelector("#top")
+            ukr.style.display = "none"
+        }
+        function wypisz(){
+            let wyp = document.querySelector("#wypisz")
+            wyp.style.display = "inline"
+        }
+        main_btn.addEventListener("click", function(evt){
+            evt.preventDefault();
+            ukryj()
+        })
+    </script>   
+    <style>
+        #top{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-content: center;
+
+        }
+        .btn{
+            width: 75px;
+        }
+    </style>
+</body>
+</html>
